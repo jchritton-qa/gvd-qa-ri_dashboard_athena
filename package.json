@@ -1,0 +1,15 @@
+{
+  "name": "gn5456-gvd-qa-ri_dashboard_athena",
+  "version": "1.0.0",
+  "description": "Lambda function for GVD referential integrity dashboard Athena setup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Chritton",
+  "license": "MIT",
+  "dependencies": {
+    "athena-express": "^5.2.0",
+    "aws-sdk": "^2.656.0"
+  }
+}
