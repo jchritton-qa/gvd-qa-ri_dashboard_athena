@@ -2,8 +2,9 @@ function SourceToMedia(schema, currentProcessedDate) {
     return {
         "ri_reference_name": "SourceToMedia",
         "join_column": "media_gnid",
-        "present_column": "CASE WHEN MC1.media_gnid IS NOT NULL THEN SM1.source_gnid END",
-        "total_column": "SM1.source_gnid",
+        "referring_object": "SM1.source_gnid",
+        "present_column": "MC1.media_gnid",
+        "total_column": "SM1.media_gnid",
         "current_from": `
             FROM ${schema}.ri_sources_vod RS1
                 INNER JOIN gvd_base.catalog_manifest_catalog_item CMCI1

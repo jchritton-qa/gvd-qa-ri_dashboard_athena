@@ -2,6 +2,7 @@ function CatalogToRootProgram(schema, currentProcessedDate) {
     return {
         "ri_reference_name": "CatalogToRootProgram",
         "join_column": "program_root_gnid",
+        "referring_object": "CI1.catalog_item_gnid",
         "present_column": "RP1.root_program_gnid",
         "total_column": "CI1.program_root_gnid",
         "current_from": `

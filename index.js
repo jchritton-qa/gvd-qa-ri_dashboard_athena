@@ -101,7 +101,7 @@ const populateUpdateQueries = (schema, finalObj, scope, data) => {
     data.forEach(ref => {
         finalObj[`ri_${scope}_${ref.ri_reference_name.toLowerCase()}`] = {
             dropQuery: Util.constructDropQuery(schema, scope, ref.ri_reference_name),
-            createQuery: Util.constructCreateQuery(schema, scope, ref.ri_reference_name, ref.join_column, ref.present_column, ref.total_column, ref.current_from),
+            createQuery: Util.constructCreateQuery(schema, scope, ref.ri_reference_name, ref.join_column, ref.referring_object, ref.present_column, ref.total_column, ref.current_from),
             insertQuery: Util.constructInsertQuery(schema, scope, ref.ri_reference_name)
         }
     })

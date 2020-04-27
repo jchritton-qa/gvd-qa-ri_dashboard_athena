@@ -2,8 +2,9 @@ function ProgramToMedia(schema, currentProcessedDate) {
     return {
         "ri_reference_name": "ProgramToMedia",
         "join_column": "media_gnid",
-        "present_column": "CASE WHEN MC1.media_gnid IS NOT NULL THEN PM1.program_gnid END",
-        "total_column": "PM1.program_gnid",
+        "referring_object": "PM1.program_gnid",
+        "present_column": "MC1.media_gnid",
+        "total_column": "PM1.media_gnid",
         "current_from": `
             FROM ${schema}.ri_sources_vod RS1
                 INNER JOIN gvd_base.catalog_manifest_catalog_item CMCI1

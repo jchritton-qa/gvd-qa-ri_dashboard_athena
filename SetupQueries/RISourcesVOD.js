@@ -9,7 +9,7 @@ function RISourcesVOD(schema, currentProcessedDate) {
             SELECT
                 DISTINCT source_gnid,
                 CURRENT_DATE AS processed_date,
-                CAST(TO_UNIXTIME(CURRENT_TIMESTAMP) AS BIGINT) AS processed_time_unix
+                TO_UNIXTIME(CURRENT_TIMESTAMP) AS processed_time_unix
             FROM gvd_base.source_context
             WHERE processed_date = '${currentProcessedDate}'
                 AND status = 'active'

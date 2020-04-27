@@ -2,6 +2,7 @@ function ADToCI(schema, currentProcessedDate) {
     return {
         "ri_reference_name": "AdToCi",
         "join_column": "catalog_item_gnid",
+        "referring_object": "AD1.availability_gnid",
         "present_column": "CI1.catalog_item_gnid",
         "total_column": "AD1.catalog_item_gnid",
         "current_from": `

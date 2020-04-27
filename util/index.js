@@ -2,12 +2,13 @@ function constructDropQuery(schema, dataScope, riReferenceName) {
     return `DROP TABLE IF EXISTS ${schema}.ri_${dataScope}_${riReferenceName.toLowerCase()}`;
 }
 
-function constructCreateQuery(schema, dataScope, riReferenceName, joinColumn, presentColumn, totalColumn, currentFrom) {
+function constructCreateQuery(schema, dataScope, riReferenceName, joinColumn, referringObject, presentColumn, totalColumn, currentFrom) {
     return `
         CREATE TABLE ${schema}.ri_${dataScope}_${riReferenceName.toLowerCase()}
         AS
         SELECT
             DISTINCT CAST('${riReferenceName}' AS VARCHAR) AS ri_reference_name,
+            ${referringObject} AS referring_object,
             ${presentColumn} AS present_objects,
             ${totalColumn} AS total_objects,
             CAST((
@@ -21,7 +22,7 @@ function constructCreateQuery(schema, dataScope, riReferenceName, joinColumn, pr
             CAST('${joinColumn}' AS VARCHAR) AS join_column,
             CAST('${dataScope}' AS VARCHAR) AS data_scope,
             CURRENT_DATE AS processed_date,
-            CAST(TO_UNIXTIME(CURRENT_TIMESTAMP) AS BIGINT) AS processed_time_unix
+            TO_UNIXTIME(CURRENT_TIMESTAMP) AS processed_time_unix
         ${currentFrom}
     `.trim();
 }

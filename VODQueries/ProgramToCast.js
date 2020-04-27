@@ -2,8 +2,9 @@ function ProgramToCast(schema, currentProcessedDate) {
     return {
         "ri_reference_name": "ProgramToCast",
         "join_column": "root_contributor_gnid",
-        "present_column": "CASE WHEN RC1.root_contributor_gnid IS NOT NULL THEN PC1.program_gnid END",
-        "total_column": "PC1.program_gnid",
+        "referring_object": "PC1.program_gnid",
+        "present_column": "RC1.root_contributor_gnid",
+        "total_column": "PC1.contributor_cast_root_gnid",
         "current_from": `
             FROM ${schema}.ri_sources_vod RS1
                 INNER JOIN gvd_base.catalog_manifest_catalog_item CMCI1
