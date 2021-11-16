@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "athena-express": "^5.2.0",
-    "aws-sdk": "^2.656.0"
+    "aws-sdk": "^2.814.0"
   }
 }
